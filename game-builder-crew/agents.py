@@ -1,5 +1,11 @@
 from textwrap import dedent
 from crewai import Agent
+from groq import Groq
+from langchain_groq import ChatGroq
+import os
+
+os.environ["GROQ_API_KEY"] = "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"
+llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 
 class GameAgents():
 	def senior_engineer_agent(self):
@@ -11,7 +17,10 @@ class GameAgents():
 				Your expertise in programming in python. and do your best to
 				produce perfect code"""),
 			allow_delegation=False,
-			verbose=True
+			verbose=True,
+			llm=llm,
+			max_rpm=30,
+			max_tpm=1000
 		)
 
 	def qa_engineer_agent(self):
@@ -26,7 +35,10 @@ class GameAgents():
 				brackets and syntax errors.
   			You also check for security vulnerabilities, and logic errors"""),
 			allow_delegation=False,
-			verbose=True
+			verbose=True,
+			llm=llm,
+			max_rpm=30,
+			max_tpm=1000
 		)
 
 	def chief_qa_engineer_agent(self):
@@ -37,5 +49,8 @@ class GameAgents():
 				You feel that programmers always do only half the job, so you are
 				super dedicate to make high quality code."""),
 			allow_delegation=True,
-			verbose=True
+			verbose=True,
+			llm=llm,
+			max_rpm=30,
+			max_tpm=1000
 		)
