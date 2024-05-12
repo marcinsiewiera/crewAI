@@ -11,7 +11,8 @@ class GameTasks():
 
 			Your Final answer must be the full python code, only the python code and nothing else.
 			"""),
-			agent=agent
+			agent=agent,
+			expected_output=""
 		)
 
 	def review_task(self, agent, game):
@@ -28,7 +29,8 @@ class GameTasks():
 
 			Your Final answer must be the full python code, only the python code and nothing else.
 			"""),
-			agent=agent
+			agent=agent,
+			expected_output=""
 		)
 
 	def evaluate_task(self, agent, game):
@@ -44,5 +46,6 @@ class GameTasks():
 
 			Your Final answer must be the full python code, only the python code and nothing else.
 			"""),
-			agent=agent
+			agent=agent,
+			expected_output=""
 		)
